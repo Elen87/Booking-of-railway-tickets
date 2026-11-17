@@ -23,6 +23,7 @@ const TrainSelection: React.FC<TrainSelectionProps> = ({ route }) => {
   };
 
   const handleSelect = () => {
+    // Передаем ID направления и данные поезда в state
     navigate(`/seats/${dep._id}`, { state: { route } });
   };
 
@@ -64,29 +65,30 @@ const TrainSelection: React.FC<TrainSelectionProps> = ({ route }) => {
         {dep.price_info.fourth && (
           <div className="price-row">
             <span className="type">Сидячий</span>
-            <span className="seats">{route.available_seats_info.fourth || 0}</span>
+            <span className="seats">{dep.seats_info.fourth || 0}</span>
             <span className="price">от {dep.price_info.fourth.top_price} ₽</span>
           </div>
         )}
         {dep.price_info.third && (
           <div className="price-row">
             <span className="type">Плацкарт</span>
-            <span className="seats">{route.available_seats_info.third || 0}</span>
+            <span className="seats">{dep.seats_info.third || 0}</span>
             <span className="price">от {dep.price_info.third.bottom_price} ₽</span>
           </div>
         )}
         {dep.price_info.second && (
           <div className="price-row">
             <span className="type">Купе</span>
-            <span className="seats">{route.available_seats_info.second || 0}</span>
+            <span className="seats">{dep.seats_info.second || 0}</span>
             <span className="price">от {dep.price_info.second.top_price} ₽</span>
           </div>
         )}
         {dep.price_info.first && (
           <div className="price-row">
             <span className="type">Люкс</span>
-            <span className="seats">{route.available_seats_info.first || 0}</span>
-            <span className="price">от {dep.price_info.first.price} ₽</span>
+            <span className="seats">{dep.seats_info.first || 0}</span>
+            {/* Используем price или top_price на случай, если price не пришел */}
+            <span className="price">от {dep.price_info.first.price || dep.price_info.first.top_price} ₽</span>
           </div>
         )}
 
@@ -96,4 +98,4 @@ const TrainSelection: React.FC<TrainSelectionProps> = ({ route }) => {
   );
 };
 
-export default TrainSelection; 
+export default TrainSelection;
