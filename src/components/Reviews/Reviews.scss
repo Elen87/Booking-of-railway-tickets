@@ -1,0 +1,59 @@
+@use '../../scss/variables' as *;
+
+.reviews {
+  padding: 80px 0;
+  background: $white;
+
+  &__grid {
+    display: flex;
+    gap: 40px;
+  }
+}
+
+.review {
+  display: flex;
+  gap: 20px;
+  flex: 1;
+
+  &__avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0; /* Чтобы аватарка не сжималась, если текст длинный */
+  }
+
+  &__content h4 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  &__content p {
+    font-size: 16px;
+    font-style: italic;
+    color: #666;
+    line-height: 1.5;
+    position: relative;
+    padding: 0 20px; /* Отступы слева и справа для кавычек */
+    
+    /* Открывающая кавычка */
+    &::before { 
+      content: '“'; 
+      font-size: 40px; 
+      color: #ccc; 
+      position: absolute; 
+      left: -10px; 
+      top: -15px; 
+    }
+
+    /* Закрывающая кавычка */
+    &::after {
+      content: '”';
+      font-size: 40px;
+      color: #ccc;
+      position: absolute;
+      right: -10px;
+      bottom: -25px;
+    }
+  }
+} 

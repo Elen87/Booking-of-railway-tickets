@@ -1,0 +1,77 @@
+@use '../../scss/variables' as *;
+
+.how-it-works {
+  position: relative; /* Обязательно для удержания желтого слоя */
+  overflow: hidden;   /* Обрезает всё, что вылезает за границы */
+  padding: 80px 0;
+  /* Путь к картинке со станции (изменено на .png) */
+  background: url('/images/how-it-works-bg.png') center/cover no-repeat;
+  color: $white;
+
+  /* Оранжевый фильтр поверх картинки */
+  &__overlay {
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0;
+    background: rgba(255, 168, 0, 0.7); /* 0.7 — плотность оранжевого цвета */
+    z-index: 1;
+  }
+
+  /* Контейнер с контентом (текст и иконки) */
+  &__container {
+    position: relative;
+    z-index: 2; /* Контент должен быть поверх оранжевого фильтра */
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 60px;
+  }
+
+  &__steps {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+  }
+}
+
+/* Кнопка "Узнать больше" с прозрачным фоном */
+.btn-outline {
+  padding: 12px 30px;
+  border: 1px solid $white;
+  color: $white;
+  background: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+
+  &:hover { 
+    background: rgba(255, 255, 255, 0.2); 
+  }
+}
+
+/* Стили для иконок и текста под ними */
+.step {
+  &__icon {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    margin: 0 auto 20px auto;
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  p { 
+    font-size: 20px; 
+    line-height: 1.4; 
+  }
+}

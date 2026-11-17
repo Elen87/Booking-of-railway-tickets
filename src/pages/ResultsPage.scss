@@ -1,0 +1,33 @@
+@use '../scss/variables' as *;
+
+.results-page {
+  background: $bg-light;
+  min-height: 100vh;
+  padding-bottom: 50px;
+
+  &__content-wrapper {
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+  }
+
+  &__main {
+    flex: 1;
+  }
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  color: #928F94;
+  font-size: 18px;
+
+  strong { color: #292929; cursor: pointer; }
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 50px;
+  font-size: 20px;
+} 
